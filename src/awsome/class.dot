@@ -1,0 +1,20 @@
+digraph {
+  fontname = "Courier New";
+  fontsize = 10;
+
+  node [shape="record"];
+
+  Animal [label="{Animal |+ name : String \l+ age : int \l| + die() : void\l}"];
+
+  subgraph clusterAnimalTmp {
+    bgcolor="yellow"
+    Dog [label="{Dog | |+ bark() : void}"]
+    Cat [label="{Cat | |+ meow() : void}"];
+  }
+
+  edge [arrowhead="empty"];
+
+  Dog -> Animal
+  Cat -> Animal
+  Dog -> Cat [arrowhead="none", label="0..*"]
+}
